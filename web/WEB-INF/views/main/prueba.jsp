@@ -10,9 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="public/css/main/prueba.css"/>
+
     </head>
     <body>
         <h1>Hello World!</h1>
-        <img src="public/<%= session.getId()%>/img/logoMascotas.jpg" alt="alt"/>
+        <img src="public/img/logoMascotas.jpg" alt="alt"/>
+        <script src="public/js/main/prueba.js"></script>
     </body>
 </html>
