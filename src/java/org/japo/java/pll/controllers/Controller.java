@@ -39,56 +39,55 @@ public class Controller extends HttpServlet {
 //        System.out.println("Cadena Peticion ..:" + request.getQueryString());
 //        System.out.println("Recurso .....:" + request.getServletPath());
 
-        if (request.getPathInfo().equals("/")) {
-
-            // Request > Comando
-            String cmd = request.getParameter("cmd");
-
-            // Salida
-            String out;
-            // Discriminar Comando
-            if (cmd == null || cmd.equals("landing")) {
-//                out = "?cmd=langing";
-                out = "WEB-INF/views/visita/visita-landing.jsp";
-
-            } else if (cmd.equals("login")) {
-//                out = "?cmd=login";
-                out = "WEB-INF/views/usuario/usuario-login.jsp";
-
-            } else if (cmd.equals("logout")) {
-//                out = "?cmd=logout";
-                out = "WEB-INF/views/usuario/usuario-logout.jsp";
-
-            } else if (cmd.equals("main")) {
-//                out = "?cmd=main";
-                out = "WEB-INF/views/main/main-usuario.jsp";
-
-            } else {
-                out = "WEB-INF/views/message/recurso-inaccesible.jsp";
-            }
-
-            // Redirección
-            RequestDispatcher despachador = request.getRequestDispatcher(out);
-
-            // Lanzar Vista
-            despachador.forward(request, response);
-        } else {
-            UtilesEstaticos.procesarEstatico(request, response);
-        }
-
-        // Configuracion App
-//        ServletConfig config = getServletConfig();
-//
 //        if (request.getPathInfo().equals("/")) {
-//            if (request.getParameter("svc") != null) {
-//                UtilesServicios.procesar(config, request, response);
-//            } else if (request.getParameter("cmd") != null) {
-//                UtilesComando.procesar(config, request, response);
+//
+//            // Request > Comando
+//            String cmd = request.getParameter("cmd");
+//
+//            // Salida
+//            String out;
+//            // Discriminar Comando
+//            if (cmd == null || cmd.equals("landing")) {
+////                out = "?cmd=langing";
+//                out = "WEB-INF/views/visita/visita-landing.jsp";
+//
+//            } else if (cmd.equals("login")) {
+////                out = "?cmd=login";
+//                out = "WEB-INF/views/usuario/usuario-login.jsp";
+//
+//            } else if (cmd.equals("logout")) {
+////                out = "?cmd=logout";
+//                out = "WEB-INF/views/usuario/usuario-logout.jsp";
+//
+//            } else if (cmd.equals("main")) {
+////                out = "?cmd=main";
+//                out = "WEB-INF/views/main/main-usuario.jsp";
+//
+//            } else {
+//                out = "WEB-INF/views/message/recurso-inaccesible.jsp";
 //            }
+//
+//            // Redirección
+//            RequestDispatcher despachador = request.getRequestDispatcher(out);
+//
+//            // Lanzar Vista
+//            despachador.forward(request, response);
 //        } else {
 //            UtilesEstaticos.procesarEstatico(request, response);
-//
 //        }
+        // Configuracion App
+        ServletConfig config = getServletConfig();
+
+        if (request.getPathInfo().equals("/")) {
+            if (request.getParameter("svc") != null) {
+                UtilesServicios.procesar(config, request, response);
+            } else if (request.getParameter("cmd") != null) {
+                UtilesComando.procesar(config, request, response);
+            }
+        } else {
+            UtilesEstaticos.procesarEstatico(request, response);
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

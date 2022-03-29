@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public interface ICommand {
 
-    // Nombre de Comando
-    ICommand obtenerComando(String cmdName);
-
     void init(ServletConfig config,
             HttpServletRequest request,
             HttpServletResponse response);

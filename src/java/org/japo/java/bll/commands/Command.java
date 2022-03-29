@@ -19,20 +19,22 @@ public abstract class Command implements ICommand {
     protected HttpServletResponse response;
 
     @Override
-    public ICommand obtenerComando(String cmdName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void init(
             ServletConfig config,
             HttpServletRequest resquest,
             HttpServletResponse response) {
         this.config = config;
+        this.request = resquest;
+        this.response = response;
 
     }
 
-//    @Override
-//    public void process() {
-//    }
+    protected void forward(String out) {
+        if (out.startsWith("controller")) {
+            //Redireccion de Comando
+        } else {
+            // Redireccion de Vista
+        }
+    }
+
 }
