@@ -4,7 +4,10 @@
  */
 package org.japo.java.bll.commands;
 
+import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,11 +32,28 @@ public abstract class Command implements ICommand {
 
     }
 
-    protected void forward(String out) {
+    protected void forward(String out) throws IOException, ServletException {
         if (out.startsWith("controller")) {
-            //Redireccion de Comando
+            /* Redireccion de Comando */
+            // Eliminar Prefijo
+            out = out.replace("controller", "");
+
+            // Redireccion del comando
+            response.sendRedirect(out);
+
         } else {
-            // Redireccion de Vista
+            /* Redireccion de Vista */
+            // Configuracion > Ruta Base Vistas
+            String ruta = config.getServletContext().getInitParameter("ruta-vistas");
+
+            // Obtener Ruta completa de la vista
+            out = String.format("%s/%s.jsp", ruta, out);
+
+            // Request + Nombre Vista > Despachador
+            RequestDispatcher dispatcher = request.getRequestDispatcher(out);
+
+            // Ejecutar el Despachador
+            dispatcher.forward(request, response);
         }
     }
 

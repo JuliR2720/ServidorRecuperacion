@@ -10,20 +10,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Web App</title>
-        <link rel="stylesheet" href="public/css/usuario/usuario-login.css"/>
+        <link rel="stylesheet" href="public/css/usuario/usuario-registro.css"/>
 
     </head>
     <body>
         <header>
-            <div> Login </div>
+            <div> Registro </div>
             <div> 
                 <a href="?cmd=visita-landing"> Inicio </a>
-                <a href="#"> Registro </a>
+                <a href="?cmd=usuario-login"> Login </a>
             </div>
         </header>
 
         <main>
-            <h2>Login</h2>
+            <h2> Registro </h2>
 
             <form method="post" accept-charset="Windows-1252">
                 <div>
@@ -55,7 +55,9 @@
         </main>
 
         <footer>
-            <div> Redes Sociales </div>
+            <div> 
+                <a href="https://es-es.facebook.com/"> <img src="public/img/facebook.png"/></a>
+            </div>
             <div> Todos los Derechos son Reservados </div>
         </footer>
         <script src="public/js/usuario/usuario-login.js"></script>

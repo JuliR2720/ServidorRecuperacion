@@ -16,8 +16,8 @@
         <header>
             <div> Landing </div>
             <div> 
-                <a href="#"> Login </a>
-                <a href="#"> Registro </a>
+                <a href="?cmd=usuario-login"> Login </a>
+                <a href="?cmd=usuario-registro"> Registro </a>
             </div>
         </header>
         <main>

@@ -4,6 +4,7 @@
  */
 package org.japo.java.libraries;
 
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import javax.servlet.ServletConfig;
@@ -29,7 +30,7 @@ public final class UtilesComando {
             ServletConfig config,
             HttpServletRequest request,
             HttpServletResponse response)
-            throws ServletException {
+            throws ServletException, IOException {
 
         // Request > Nombre del Comando
         String cmdName = request.getParameter("cmd");
