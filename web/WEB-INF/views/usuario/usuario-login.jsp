@@ -1,9 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : 22 mar 2022, 12:21:42
-    Author     : Julián David Ramos Gómez <juli12319@hotmail.com>
---%>
-
+<%@page import="org.japo.java.libraries.UtilesEntidad"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,14 +13,16 @@
             <div> Login </div>
             <div> 
                 <a href="?cmd=visita-landing"> Inicio </a>
-                <a href="#"> Registro </a>
+                <a href="?cmd=usuario-registro"> Registro </a>
             </div>
         </header>
 
         <main>
             <h2>Login</h2>
 
-            <form method="post" accept-charset="Windows-1252">
+            <form action="?cmd=usuario-login&op=proceso" 
+                  method="post" 
+                  accept-charset="ISO-8859-1">
                 <div>
                     <label for="user"> Usuario </label>
                     <input 
@@ -33,23 +30,23 @@
                         type="text" 
                         name="user"
                         required
-                        pattern="\w{3,20}"
-                        autocomplete="username"
+                        pattern="<%=UtilesEntidad.REG_USER%>"
+                        
                         />
                 </div>
                 <div>
-                    <label for="password">Password</label>
+                    <label for="pass"> Password </label>
                     <input 
-                        id="password" 
+                        id="pass" 
                         type="password" 
-                        name="password"
+                        name="pass"
                         required
-                        pattern="\w{3,20}"
-                        autocomplete="current-password"/>
+                        pattern="<%=UtilesEntidad.REG_PASS%>"
+                        />
                 </div>
                 <div>
-                    <button type="submit">Acceder</button>
-                    <button type="reset">Reiniciar</button>
+                    <button type="submit"> Acceder </button>
+                    <button type="reset"> Reiniciar </button>
                 </div>
             </form>        
         </main>

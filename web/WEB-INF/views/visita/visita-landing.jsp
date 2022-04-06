@@ -1,34 +1,68 @@
-<%-- 
-    Document   : visita-landing
-    Created on : 22 mar. 2022, 10:24:47
-    Author     : Julian David Ramos Gómez <juli12319@hotmail.com>
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Web App</title>
+        <title> Visita </title>
+
+        <!-- References -->
+        <meta name="author" content="Julian David Ramos Gomez - juli12319@hotmail.com" />
+        <meta name="description" content=" Visita Landing " />
+
+        <!-- Configuration -->
+        <meta name="keywords" content="HTML CSS JS" />
+        <meta name="robots" content="noindex, nofollow" />
+
+        <!-- Viewport Setup for mobile devices -->
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+            />
+
+        <!-- Favicon -->
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+        <!-- Style Sheet Links -->
         <link rel="stylesheet" href="public/css/visita/visita-landing.css"/>
+        <link rel="stylesheet" href="public/css/partial/footer.css"/>
     </head>
     <body>
-        <header>
-            <div> Landing </div>
-            <div> 
-                <a href="?cmd=usuario-login"> Login </a>
-                <a href="?cmd=usuario-registro"> Registro </a>
-            </div>
-        </header>
-        <main>
-            <h1> Estas en la Pagina de Inicio </h1>
-            <img src="public/img/astronauta.jpg" alt="astronauta"/>
-            <h2> Bienvenido </h2>
-        </main>
-        <footer>
-            <div> Redes Sociales </div>
-            <div> Todos los Derechos son Reservados </div>
-        </footer>
+        <div id="container">
+            <header>
+                <div> Landing </div>
+                <div> 
+                    <a href="?cmd=usuario-login"> Login </a>
+                    <a href="?cmd=usuario-registro"> Registro </a>
+                    <a href="#"> Galeria </a>
+                </div>
+            </header>
+            <main>
+                <h1> Estas en la Pagina de Inicio </h1>
+                <img src="public/img/astronauta.jpg" alt="astronauta"/>
+                <h2> Bienvenido </h2>
+                <h1> Estas en la Pagina de Inicio </h1>
+                <img src="public/img/astronauta.jpg" alt="astronauta"/>
+                <h2> Bienvenido </h2>
+                <h1> Estas en la Pagina de Inicio </h1>
+                <img src="public/img/astronauta.jpg" alt="astronauta"/>
+                <h2> Bienvenido </h2>
+                <h1> Estas en la Pagina de Inicio </h1>
+                <img src="public/img/astronauta.jpg" alt="astronauta"/>
+                <h2> Bienvenido </h2>
+                <h1> Estas en la Pagina de Inicio </h1>
+                <img src="public/img/astronauta.jpg" alt="astronauta"/>
+                <h2> Bienvenido </h2>
+                <h1> Estas en la Pagina de Inicio </h1>
+                <img src="public/img/astronauta.jpg" alt="astronauta"/>
+                <h2> Bienvenido </h2>
+                <h1> Estas en la Pagina de Inicio </h1>
+                <img src="public/img/astronauta.jpg" alt="astronauta"/>
+                <h2> Bienvenido </h2>
+            </main>
+            <%@include file="../partial/footer.jspf" %>
+        </div>
+
+
         <script src="public/js/visita/visita-landing.js"></script>
     </body>
 </html>

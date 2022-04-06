@@ -1,9 +1,3 @@
-<%-- 
-    Document   : recurso-ineccasible
-    Created on : 22 mar 2022, 12:24:39
-    Author     : Julián David Ramos Gómez <juli12319@hotmail.com>
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +11,7 @@
         <header>
             <div> Error 404 </div>
             <div> 
-                <a href="#"> Inicio </a>
+                <a href="?cmd=visita-landing"> Inicio </a>
             </div>
         </header>
         <main>
