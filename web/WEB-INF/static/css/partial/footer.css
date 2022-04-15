@@ -1,5 +1,5 @@
 footer{
-    height: 90px;
+    min-width: 650px;
     display: flex;
     justify-content: space-between;
     background-image: radial-gradient(circle at 50% -20.71%, #ade5ff 0, #7dcefb 25%, #3cb5f2 50%, #009ce9 75%, #0085e0 100%);
@@ -11,10 +11,19 @@ footer img{
     object-fit: cover;
     margin: 0px 10px;
     border-radius: 20px;
+    padding: 10px 0px;
 }
 
-body > footer > div{
+#container > footer > div{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+fooater a{
+    font-family: cursive;
+}
+
+footer > div:nth-child(2) > a{
+    margin: 0px 10px;
 }

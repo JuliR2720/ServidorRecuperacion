@@ -10,6 +10,8 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.japo.java.entities.Usuario;
 
 /**
  *
@@ -55,6 +57,26 @@ public abstract class Command implements ICommand {
             // Ejecutar el Despachador
             dispatcher.forward(request, response);
         }
+    }
+
+    protected boolean validarSesion(HttpServletRequest request) {
+        //Semaforo de Validacion
+        boolean checkOK = false;
+
+        //Request > obtener sesion
+        HttpSession sesion = request.getSession(false);
+        // Validacion
+        if (sesion != null) {
+            Usuario usuario = (Usuario) sesion.getAttribute("usuario");
+
+            if (usuario != null) {
+                // Se deberia comprobar la existencia del Usuario de la sesion en la BBDD
+                checkOK = true;
+            }
+        }
+
+        // Retorno
+        return checkOK;
     }
 
 }

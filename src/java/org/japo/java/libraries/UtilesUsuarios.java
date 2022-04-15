@@ -1,14 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package org.japo.java.libraries;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import org.japo.java.dll.usuario.DLLUsuario;
+import org.japo.java.entities.Usuario;
 
 /**
  *
  * @author Julian David Ramos Gómez <juli12319@hotmail.com>
  */
-public final class UtilesEntidad {
+public final class UtilesUsuarios {
 
     // Constantes
     public static final int DEF_ID = 0;
@@ -20,7 +22,8 @@ public final class UtilesEntidad {
     public static final String REG_USER = "\\w{3,30}";
     public static final String REG_PASS = "\\w{3,30}";
 
-    private UtilesEntidad() {
+
+    private UtilesUsuarios() {
     }
 
     public static final boolean validarId(int id) {
@@ -39,4 +42,36 @@ public final class UtilesEntidad {
         return UtilesBase64.validar(avatar);
     }
 
+    public static String obtenerComandoVistaPrincipal(HttpServletRequest request) {
+        // Salida
+        String out;
+        
+        // Request > Obtener Session
+        HttpSession sesion = request.getSession(false);
+
+        // Sesion > Usuario 
+        Usuario usuario = (Usuario) sesion.getAttribute("usuario");
+        
+        // Discriminar la Salida
+        switch(usuario.getPerfil()){
+            case UtilesPerfiles.BASIC_CODE:
+                out = "main/main-basic";
+                break;
+            case UtilesPerfiles.ADMIN_CODE:
+                out = "main/main-admin";
+                break;
+            default:
+                // Eror Interno NO deberia Ocurrir
+                out = "main/main-basic";
+        }
+        
+        return out;
+    }
+    
+//        public static Usuario obtenerUsuarioRequest(ServletConfig config, HttpServletRequest request) {
+//            // Instanciar capa de Datos - Usuario
+//            DLLUsuario dllUsuario = new DLLUsuario(config);
+//            
+//            
+//    }
 }

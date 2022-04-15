@@ -1,12 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="public/css/header.css" type="text/css">
-    </head>
-    <body>
+<header>
 
-    </body>
-</html>
+    <div> Cinema Life <img src="public/img/logo-cine.png" alt="logo-cine"/> </div>
+
+    <div> 
+        <a href="?cmd=visita-landing"> Inicio </a>
+        <a href="?cmd=usuario-login"> Login </a>
+        <a href="?cmd=usuario-registro"> Registro </a>
+        <a href="?cmd=visita-accion"> Galeria </a>
+    </div>
+
+</header>

@@ -2,7 +2,8 @@ package org.japo.java.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
-import org.japo.java.libraries.UtilesEntidad;
+import org.japo.java.libraries.UtilesPerfiles;
+import org.japo.java.libraries.UtilesUsuarios;
 
 /**
  *
@@ -15,36 +16,43 @@ public final class Usuario implements Serializable {
     private String user;
     private String pass;
     private String avatar;
+    private int perfil;
 
     // Constructor Predeterminado
     public Usuario() {
-        id = UtilesEntidad.DEF_ID;
-        user = UtilesEntidad.DEF_USER;
-        pass = UtilesEntidad.DEF_PASS;
-        avatar = UtilesEntidad.DEF_AVATAR;
+        id = UtilesUsuarios.DEF_ID;
+        user = UtilesUsuarios.DEF_USER;
+        pass = UtilesUsuarios.DEF_PASS;
+        avatar = UtilesUsuarios.DEF_AVATAR;
+        perfil = UtilesPerfiles.DEF_ID;
     }
 
     // Constructor Parametrizado
-    public Usuario(int id, String user, String pass, String avatar) {
+    public Usuario(int id, String user, String pass, String avatar, int perfil) {
         if (validarId()) {
             this.id = id;
         } else {
-            this.id = UtilesEntidad.DEF_ID;
+            this.id = UtilesUsuarios.DEF_ID;
         }
         if (validarUser()) {
             this.user = user;
         } else {
-            this.user = UtilesEntidad.DEF_USER;
+            this.user = UtilesUsuarios.DEF_USER;
         }
         if (validarPass()) {
             this.pass = pass;
         } else {
-            this.pass = UtilesEntidad.DEF_PASS;
+            this.pass = UtilesUsuarios.DEF_PASS;
         }
         if (validarAvatar()) {
             this.avatar = avatar;
         } else {
-            this.avatar = UtilesEntidad.DEF_AVATAR;
+            this.avatar = UtilesUsuarios.DEF_AVATAR;
+        }
+        if (validarPerfil()) {
+            this.perfil = perfil;
+        } else {
+            this.perfil = UtilesPerfiles.DEF_ID;
         }
     }
 
@@ -53,7 +61,9 @@ public final class Usuario implements Serializable {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (validarId()) {
+            this.id = id;
+        }
     }
 
     public String getUser() {
@@ -61,7 +71,9 @@ public final class Usuario implements Serializable {
     }
 
     public void setUser(String user) {
-        this.user = user;
+        if (validarUser()) {
+            this.user = user;
+        }
     }
 
     public String getPass() {
@@ -69,7 +81,9 @@ public final class Usuario implements Serializable {
     }
 
     public void setPass(String pass) {
-        this.pass = pass;
+        if (validarPass()) {
+            this.pass = pass;
+        }
     }
 
     public String getAvatar() {
@@ -77,23 +91,39 @@ public final class Usuario implements Serializable {
     }
 
     public void setAvatar(String avatar) {
-        this.avatar = avatar;
+        if (validarAvatar()) {
+            this.avatar = avatar;
+        }
+    }
+
+    public int getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(int perfil) {
+        if (validarPerfil()) {
+            this.perfil = perfil;
+        }
     }
 
     private boolean validarId() {
-        return UtilesEntidad.validarId(id);
+        return UtilesUsuarios.validarId(id);
     }
 
     private boolean validarUser() {
-        return UtilesEntidad.validarUser(user);
+        return UtilesUsuarios.validarUser(user);
     }
 
     private boolean validarPass() {
-        return UtilesEntidad.validarPass(pass);
+        return UtilesUsuarios.validarPass(pass);
     }
 
     private boolean validarAvatar() {
-        return UtilesEntidad.validarAvatar(avatar);
+        return UtilesUsuarios.validarAvatar(avatar);
+    }
+
+    private boolean validarPerfil() {
+        return UtilesPerfiles.validarId(perfil);
     }
 
     @Override
@@ -104,7 +134,8 @@ public final class Usuario implements Serializable {
             testOK = id == u.getId()
                     && user.equals(u.getUser())
                     && pass.equals(u.getPass())
-                    && avatar.equals(u.getAvatar());
+                    && avatar.equals(u.getAvatar())
+                    && perfil == u.getPerfil();
         }
 
         return testOK;
@@ -112,11 +143,12 @@ public final class Usuario implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + this.id;
-        hash = 97 * hash + Objects.hashCode(this.user);
-        hash = 97 * hash + Objects.hashCode(this.pass);
-        hash = 97 * hash + Objects.hashCode(this.avatar);
+        int hash = 7;
+        hash = 79 * hash + this.id;
+        hash = 79 * hash + Objects.hashCode(this.user);
+        hash = 79 * hash + Objects.hashCode(this.pass);
+        hash = 79 * hash + Objects.hashCode(this.avatar);
+        hash = 79 * hash + this.perfil;
         return hash;
     }
 

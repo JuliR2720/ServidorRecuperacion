@@ -3,11 +3,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> Visita </title>
+        <title> Cinema Life </title>
 
         <!-- References -->
         <meta name="author" content="Julian David Ramos Gomez - juli12319@hotmail.com" />
-        <meta name="description" content=" Visita Landing " />
+        <meta name="description" content=" Cinema Life - Visita Landing " />
 
         <!-- Configuration -->
         <meta name="keywords" content="HTML CSS JS" />
@@ -23,46 +23,23 @@
         <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
         <!-- Style Sheet Links -->
+        <link rel="stylesheet" href="public/css/partial/header.css"/>
         <link rel="stylesheet" href="public/css/visita/visita-landing.css"/>
         <link rel="stylesheet" href="public/css/partial/footer.css"/>
     </head>
     <body>
+
         <div id="container">
-            <header>
-                <div> Landing </div>
-                <div> 
-                    <a href="?cmd=usuario-login"> Login </a>
-                    <a href="?cmd=usuario-registro"> Registro </a>
-                    <a href="#"> Galeria </a>
-                </div>
-            </header>
+
+            <%@include file="../partial/header.jspf" %>
             <main>
-                <h1> Estas en la Pagina de Inicio </h1>
-                <img src="public/img/astronauta.jpg" alt="astronauta"/>
-                <h2> Bienvenido </h2>
-                <h1> Estas en la Pagina de Inicio </h1>
-                <img src="public/img/astronauta.jpg" alt="astronauta"/>
-                <h2> Bienvenido </h2>
-                <h1> Estas en la Pagina de Inicio </h1>
-                <img src="public/img/astronauta.jpg" alt="astronauta"/>
-                <h2> Bienvenido </h2>
-                <h1> Estas en la Pagina de Inicio </h1>
-                <img src="public/img/astronauta.jpg" alt="astronauta"/>
-                <h2> Bienvenido </h2>
-                <h1> Estas en la Pagina de Inicio </h1>
-                <img src="public/img/astronauta.jpg" alt="astronauta"/>
-                <h2> Bienvenido </h2>
-                <h1> Estas en la Pagina de Inicio </h1>
-                <img src="public/img/astronauta.jpg" alt="astronauta"/>
-                <h2> Bienvenido </h2>
                 <h1> Estas en la Pagina de Inicio </h1>
                 <img src="public/img/astronauta.jpg" alt="astronauta"/>
                 <h2> Bienvenido </h2>
             </main>
             <%@include file="../partial/footer.jspf" %>
+
         </div>
-
-
         <script src="public/js/visita/visita-landing.js"></script>
     </body>
 </html>
