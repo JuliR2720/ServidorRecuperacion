@@ -20,5 +20,9 @@
     <error-page>
         <error-code>500</error-code>
         <location>/WEB-INF/views/message/recurso-inaccesible.jsp</location>
-    </error-page>        
+    </error-page>    
+    <context-param>
+        <param-name>lapso-inactividad</param-name>
+        <param-value>1800</param-value>
+    </context-param>    
 </web-app>

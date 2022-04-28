@@ -68,10 +68,49 @@ public final class UtilesUsuarios {
         return out;
     }
     
-//        public static Usuario obtenerUsuarioRequest(ServletConfig config, HttpServletRequest request) {
-//            // Instanciar capa de Datos - Usuario
-//            DLLUsuario dllUsuario = new DLLUsuario(config);
-//            
-//            
-//    }
+        public static Usuario obtenerUsuarioRequest(ServletConfig config, HttpServletRequest request) {
+            // Instanciar capa de Datos - Usuario
+            DLLUsuario dllUsuario = new DLLUsuario(config);
+            
+            // Request > Nombre de Usuario  (mismo nombre del html)
+            String user = request.getParameter("user");
+            
+            // Base de Datyos + user > Usuario
+            Usuario usuario = dllUsuario.consultar(user);
+            
+            // Peticion > Password 
+            String pass = request.getParameter("pass");
+            
+            // Validar Password 
+            if(usuario != null && !usuario.getPass().equals(pass) ) {
+            usuario = null ;
+            }
+            
+            // Retorno de Usuario
+            return usuario;
+               
+    }
+        
+            public static HttpSession reiniciarSesion(ServletConfig config, HttpServletRequest request) {
+                
+                // Request > Obtener Sesion
+                HttpSession sesion = request.getSession(false);
+                
+                // verificar Existencia Sesion
+                if(sesion != null){
+                sesion.invalidate();
+                }
+                
+                // Crear Sesion
+                sesion = request.getSession();
+                        
+                // Config > Lapso
+                int lapso = UtilesServlets.obtenerLapsoInactividad(config);
+                
+                // Tiempo Maximo Sesion Inactiva
+                sesion.setMaxInactiveInterval(lapso);
+                
+                // Devolver sesion
+                return sesion;
+            }
 }

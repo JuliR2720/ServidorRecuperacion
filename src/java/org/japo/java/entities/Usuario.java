@@ -17,6 +17,7 @@ public final class Usuario implements Serializable {
     private String pass;
     private String avatar;
     private int perfil;
+    private String perfilInfo;
 
     // Constructor Predeterminado
     public Usuario() {
@@ -25,34 +26,40 @@ public final class Usuario implements Serializable {
         pass = UtilesUsuarios.DEF_PASS;
         avatar = UtilesUsuarios.DEF_AVATAR;
         perfil = UtilesPerfiles.DEF_ID;
+        perfilInfo = UtilesPerfiles.DEF_INFO;
     }
 
     // Constructor Parametrizado
-    public Usuario(int id, String user, String pass, String avatar, int perfil) {
-        if (validarId()) {
+    public Usuario(int id, String user, String pass, String avatar, int perfil, String perfilInfo) {
+        if (UtilesUsuarios.validarId(id)) {
             this.id = id;
         } else {
             this.id = UtilesUsuarios.DEF_ID;
         }
-        if (validarUser()) {
+        if (UtilesUsuarios.validarUser(user)) {
             this.user = user;
         } else {
             this.user = UtilesUsuarios.DEF_USER;
         }
-        if (validarPass()) {
+        if (UtilesUsuarios.validarPass(pass)) {
             this.pass = pass;
         } else {
             this.pass = UtilesUsuarios.DEF_PASS;
         }
-        if (validarAvatar()) {
+        if (UtilesUsuarios.validarAvatar(avatar)) {
             this.avatar = avatar;
         } else {
             this.avatar = UtilesUsuarios.DEF_AVATAR;
         }
-        if (validarPerfil()) {
+        if (UtilesPerfiles.validarId(perfil)) {
             this.perfil = perfil;
         } else {
             this.perfil = UtilesPerfiles.DEF_ID;
+        }
+        if (UtilesPerfiles.validarInfo(perfilInfo)) {
+            this.perfilInfo = perfilInfo;
+        } else {
+            this.perfilInfo = UtilesPerfiles.DEF_INFO;
         }
     }
 
@@ -106,6 +113,16 @@ public final class Usuario implements Serializable {
         }
     }
 
+    public String getPerfilInfo() {
+        return perfilInfo;
+    }
+
+    public void setPerfilInfo(String perfilInfo) {
+        if (validarPerfilInfo()) {
+            this.perfilInfo = perfilInfo;
+        }
+    }
+
     private boolean validarId() {
         return UtilesUsuarios.validarId(id);
     }
@@ -126,6 +143,10 @@ public final class Usuario implements Serializable {
         return UtilesPerfiles.validarId(perfil);
     }
 
+    private boolean validarPerfilInfo() {
+        return UtilesPerfiles.validarInfo(perfilInfo);
+    }
+
     @Override
     public boolean equals(Object o) {
         boolean testOK = false;
@@ -135,7 +156,8 @@ public final class Usuario implements Serializable {
                     && user.equals(u.getUser())
                     && pass.equals(u.getPass())
                     && avatar.equals(u.getAvatar())
-                    && perfil == u.getPerfil();
+                    && perfil == u.getPerfil()
+                    && perfilInfo.equals(u.getPerfilInfo());
         }
 
         return testOK;
@@ -149,6 +171,7 @@ public final class Usuario implements Serializable {
         hash = 79 * hash + Objects.hashCode(this.pass);
         hash = 79 * hash + Objects.hashCode(this.avatar);
         hash = 79 * hash + this.perfil;
+        hash = 79 * hash + Objects.hashCode(this.perfilInfo);
         return hash;
     }
 

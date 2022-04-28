@@ -13,6 +13,9 @@ import javax.sql.DataSource;
  */
 public final class UtilesServlets {
 
+    // Lapso Inactividad por Defecto
+    private static final int DEF_LAPSO = 1800;
+
     private UtilesServlets() {
     }
 
@@ -48,5 +51,30 @@ public final class UtilesServlets {
         // Retorno: Nombre Base de Datos
         return context.getInitParameter(paramName);
 
+    }
+
+    // Modificar el fichero de web.xml 
+    public static final int obtenerLapsoInactividad(ServletConfig config) {
+        // Tiempo Maximo de Inactividad de Sesion
+        int lapso;
+
+        // Nombre del Parámetro
+        String paramName = "lapso-inactividad";
+
+        // Obtener Contexto de la App
+        ServletContext context = config.getServletContext();
+
+        // Contexto > Valor Parámetro 
+        String paramValue = context.getInitParameter(paramName);
+
+        try {
+            // String > int
+            lapso = Integer.parseInt(paramValue);
+        } catch (NumberFormatException e) {
+            lapso = DEF_LAPSO;
+        }
+
+        // Return lapso
+        return lapso;
     }
 }

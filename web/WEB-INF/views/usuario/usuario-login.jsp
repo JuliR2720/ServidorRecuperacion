@@ -1,4 +1,5 @@
-<%@page import="org.japo.java.libraries.UtilesEntidad"%>
+<%@page import="org.japo.java.libraries.UtilesUsuarios"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -46,7 +47,7 @@
                             type="text" 
                             name="user"
                             required
-                            pattern="<%=UtilesEntidad.REG_USER%>"
+                            pattern="<%=UtilesUsuarios.REG_USER%>"
 
                             />
                     </div>
@@ -57,7 +58,7 @@
                             type="password" 
                             name="pass"
                             required
-                            pattern="<%=UtilesEntidad.REG_PASS%>"
+                            pattern="<%=UtilesUsuarios.REG_PASS%>"
                             />
                     </div>
                     <div>

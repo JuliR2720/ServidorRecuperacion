@@ -1,14 +1,48 @@
+<%@page import="org.japo.java.entities.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%
+    HttpSession _sesion = request.getSession(false);
+    String _avatar = null;
+    String _user = null;
+
+    if (_sesion != null) {
+        Usuario _usuario = (Usuario) _sesion.getAttribute("usuario");
+        if (_usuario != null) {
+            _avatar = _usuario.getAvatar();
+            _user = _usuario.getUser();
+
+        }
+    }
+%>
 <header>
 
-    <div> Cinema Life <img src="public/img/logo-cine.png" alt="logo-cine"/> </div>
+    <% if (_avatar != null) {%>
+    <div> 
+        <img src="public/img/logo-cine.png" alt="logo-cine"/> 
+        <h1>Virtual World Pictures</h1>  
+    </div>
+
+    <div>
+        <div>
+            <img src="<%= _avatar%>" alt="avatar"/>
+            <p> <%= _user%></p>
+        </div>
+    </div>
+
+    <% } else { %>
+    <div> 
+        <img src="public/img/logo-cine.png" alt="logo-cine"/> 
+        <h1>Virtual World Pictures</h1>  
+    </div>
 
     <div> 
         <a href="?cmd=visita-landing"> Inicio </a>
         <a href="?cmd=usuario-login"> Login </a>
         <a href="?cmd=usuario-registro"> Registro </a>
-        <a href="?cmd=visita-accion"> Galeria </a>
+        <a href="?cmd=visita-accion"> Peliculas </a>
     </div>
+    <%}%>
 
 </header>
+<script src="public/js/partial/header.js"></script>

@@ -31,25 +31,25 @@ public class CommandUsuarioLogin extends Command {
                 out = "usuario/usuario-login";
             } else if (op.equals("proceso")) {
                 // Entrada + BD > Entidad Usuario
-//                Usuario usuario = UtilesUsuarios.obtenerUsuarioRequest(config, request);
+                Usuario usuario = UtilesUsuarios.obtenerUsuarioRequest(config, request);
 
                 // Validar Usuario en Formulario
-//                if (usuario == null) {
+                if (usuario == null) {
                     out = "message/credencial-incorrecta";
                 } else {
 
                     // Regenerar Sesion
-//                    HttpSession sesion = UtilesUsuarios.reiniciarSesion(config, request);
+                    HttpSession sesion = UtilesUsuarios.reiniciarSesion(config, request);
 
                     // Usuario > Sesión
-//                    sesion.setAttribute("usuario", usuario);
+                    sesion.setAttribute("usuario", usuario);
 
                     // Usuario + Perfil > Salida
                     out = UtilesUsuarios.obtenerComandoVistaPrincipal(request);
                 }
-//            } else {
-//                out = "message/operacion-desconocida";
-//            }
+            } else {
+                out = "message/operacion-desconocida";
+            }
         }
 
         // Redireccion
