@@ -31,13 +31,15 @@
 
         <div id="container">
 
-            <%@include file="../partial/header.jspf" %>
+            <%--<%@include file="../partial/header.jspf" %>--%>
+            <%@include file="/WEB-INF/views/partial/header.jspf" %>
             <main>
                 <h1> Estas en la Pagina de Inicio </h1>
                 <img src="public/img/astronauta.jpg" alt="astronauta"/>
                 <h2> Bienvenido </h2>
             </main>
-            <%@include file="../partial/footer.jspf" %>
+            <%@include file="/WEB-INF/views/partial/footer.jspf" %>
+            <%--<%@include file="../partial/footer.jspf" %>--%>
 
         </div>
         <script src="public/js/visita/visita-landing.js"></script>

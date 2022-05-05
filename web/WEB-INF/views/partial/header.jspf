@@ -2,7 +2,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
+    /* Obtener Sesion */
     HttpSession _sesion = request.getSession(false);
+
+    /* Declaracion de Usuario y Nombre */
     String _avatar = null;
     String _user = null;
 
@@ -19,20 +22,26 @@
 
     <% if (_avatar != null) {%>
     <div> 
-        <img src="public/img/logo-cine.png" alt="logo-cine"/> 
+        <a href="?cmd=visita-landing">
+            <img src="public/img/logo-cine.png" alt="logo-cine"/> 
+        </a>
         <h1>Virtual World Pictures</h1>  
     </div>
 
     <div>
         <div>
-            <img src="<%= _avatar%>" alt="avatar"/>
-            <p> <%= _user%></p>
+            <a href="?cmd=usuario-logout">
+                <img src="<%= _avatar%>" alt="avatar"/>
+                <p> <%= _user%></p>
+            </a>
         </div>
     </div>
 
     <% } else { %>
     <div> 
-        <img src="public/img/logo-cine.png" alt="logo-cine"/> 
+        <a href="?cmd=visita-landing">
+            <img src="public/img/logo-cine.png" alt="logo-cine"/> 
+        </a>
         <h1>Virtual World Pictures</h1>  
     </div>
 

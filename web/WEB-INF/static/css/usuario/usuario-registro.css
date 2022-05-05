@@ -14,7 +14,7 @@ body{
 }
 
 main{
-    min-height: 80vh;
+    min-height: 81vh;
     min-width: 650px;
     display: flex;
     flex-direction: column;
@@ -29,10 +29,11 @@ a{
 
 main > h2 {
     padding: 10px 0px;
+    font-size: 30px;
 }
 
 form {
-    width: 60%;
+    width: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,7 +41,7 @@ form {
     padding: 10px 0px;
 
     border: 2px solid black;
-    box-shadow: 5px 8px 15px black;
+    box-shadow: 2px 5px 15px black;
 }
 
 form > div {

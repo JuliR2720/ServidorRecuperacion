@@ -13,7 +13,7 @@ img{
     object-fit: cover;
 }
 
-#container > header > div:nth-child(1) > img{
+#container > header > div:nth-child(1) > a > img{
     width: 80px;
     height: 80px;
     margin: 0px 10px;
@@ -59,7 +59,7 @@ header > div:nth-child(2) > div > p{
     font-family:cursive;
 }
 
-header > div:nth-child(2) > div > img{
+header > div:nth-child(2) > div > a > img{
     width: 40px;
     height: 40px;
     display: flex;

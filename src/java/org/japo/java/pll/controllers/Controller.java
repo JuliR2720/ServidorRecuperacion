@@ -26,6 +26,7 @@ import org.japo.java.libraries.UtilesServicios;
         urlPatterns = {"", "/public/*"},
         initParams = {
             @WebInitParam(name = "author", value = "JAPO Labs"),
+            @WebInitParam(name = "about", value = "Todos los Derechos Reservados"),
             @WebInitParam(name = "version", value = "0.1.0")
         })
 public class Controller extends HttpServlet {
@@ -77,6 +78,9 @@ public class Controller extends HttpServlet {
 //        }
         // Configuracion App
         ServletConfig config = getServletConfig();
+        
+//        throw new ServletException("Excepcion Manual");
+//        throw new NullPointerException("Excepcion Manual");
 
         if (request.getPathInfo().equals("/")) {
             if (request.getParameter("svc") != null) {
